@@ -1,0 +1,48 @@
+# HUMAN LANE. The contract is the law: written first, by hand.
+# The API is held to it by tests/BillTracker.Api.Tests/ContractTests.cs, and the web client's types
+# are generated from it (make gen-api).
+#
+# Extensions used on every operation:
+#   x-story      the story ID in docs/stories/ that this operation serves
+#   x-archetype  single | reference-list | scoped-list | paged | feed
+#                (docs/guides/story-data-architecture.md lists the test plan for each)
+#   x-owned      true when a user may only ever see their own records
+openapi: 3.1.0
+info:
+  title: BillTracker API
+  version: 0.1.0
+  description: Each path names the story it serves.
+paths:
+  /api/health:
+    get:
+      operationId: getHealth
+      summary: Deploy health check.
+      x-archetype: single
+      x-owned: false
+      responses:
+        "200":
+          description: The API is up.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+                    examples: ["ok"]
+components:
+  schemas:
+    ProblemDetails:
+      type: object
+      description: RFC 9457 problem details.
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string

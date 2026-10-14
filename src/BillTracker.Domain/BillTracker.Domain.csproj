@@ -1,0 +1,3 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- HUMAN LANE. The domain references nothing but the base class library. -->
+</Project>

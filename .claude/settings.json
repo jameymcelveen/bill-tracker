@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(contracts/**)",
+      "Edit(src/BillTracker.Domain/**)",
+      "Edit(content/**)",
+      "Edit(docs/stories/**)",
+      "Edit(web/src/api/generated/**)"
+    ],
+    "allow": [
+      "Bash(make check)",
+      "Bash(make test)",
+      "Bash(make build)",
+      "Bash(make trace)",
+      "Bash(make ascii)",
+      "Bash(make gen-api)",
+      "Bash(dotnet build:*)",
+      "Bash(dotnet test:*)",
+      "Bash(npm test:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ]
+  }
+}
